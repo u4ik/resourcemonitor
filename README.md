@@ -1,0 +1,1 @@
+## You can create a .bat file and create an alias to execute that .bat. Which can allow you to run this anytime you are within PowerShell.
