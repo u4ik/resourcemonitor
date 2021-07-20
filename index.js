@@ -18,15 +18,9 @@ const readCacheConfig = () => {
         cacheArr = cache;
         return cacheArr
     } catch (error) {
-        // fs.writeFile("./cache.json", JSON.stringify({ cache: cacheArr }), function (err) {
-        //     if (err) {
-        //         return console.log(err);
-        //     }
         return cacheArr;
-        // });
     }
 };
-
 
 const checkCPUFree = async () => {
     getCPUUsage(i => {
@@ -65,6 +59,7 @@ function getAllDriveSpaces() {
         }
     })
 };
+
 function getFreeSpace(path) {
     diskspace.check(path, function (err, result) {
         let percent = Math.floor(result.used / result.total * 100)
