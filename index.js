@@ -2,10 +2,25 @@ const child = require('child_process');
 let color = require('./terminalcolors');
 let diskspace = require('diskspace');
 const fs = require('fs');
+const ora = require('ora');
 let os = require('os-utils');
 let _os = require('os');
 
 let { FgBlue: blue, FgRed: red, FgGreen: green } = color;
+
+const startSpin = () => {
+    throbber = ora({
+        text: 'Loading...',
+        spinner: {
+            frames: ['|', '/', '-', `\\`, '|'],
+            interval: 100, // Optional
+        },
+    }).start();
+}
+
+const stopSpin = () => {
+    throbber.stop()
+}
 
 let cacheArr = [];
 
@@ -35,12 +50,15 @@ const checkFreeMem = async () => {
 };
 
 const checkSys = async (flag) => {
+	// startSpin();
 	readCacheConfig();
 	let res = await checkCPUFree()
 	if (!res) {
+		// stopSpin()
 		checkFreeMem()
 		getAllDriveSpaces();
 	}
+
 };
 
 function getAllDriveSpaces() {
@@ -123,8 +141,14 @@ function getCPUUsage(callback, free) {
 	}, 100);
 }
 
-console.log(`${blue}%s\x1b[0m`, '*'.repeat(40));
+// console.log(`${blue}%s\x1b[0m`, '*'.repeat(40));
 // console.time('Check');
 checkSys()
+
+
+
+	
+
+
 
 // console.timeEnd('Check');
