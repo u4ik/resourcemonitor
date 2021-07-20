@@ -6,10 +6,10 @@ let throbber;
 const startSpin = () => {
     throbber = ora({
         text: 'Loading Steps...',
-        spinner: {
-            frames: ['|', '/', '-', `\\`, '|'],
-            interval: 100, // Optional
-        },
+        // spinner: {
+        //     frames: ['|', '/', '-', `\\`, '|'],
+        //     interval: 100, // Optional
+        // },
     }).start();
 }
 
@@ -31,11 +31,11 @@ const step1 = () => {
 const step2 = () => {
     return new Promise((resolve) => {
         setTimeout(() => {
-            // for (let i = 0; i <= 10_000_000_00; i++) {
-            //     if (i == 10_000_000_00) {
-            resolve('step 2')
-            //     }     
-            // }
+            for (let i = 0; i <= 10_000_000_00; i++) {
+                if (i == 10_000_000_00) {
+                    resolve('step 2')
+                }
+            }
         }, ms)
     })
 }
