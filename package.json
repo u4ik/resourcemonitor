@@ -1,0 +1,25 @@
+{
+  "name": "resource",
+  "description": "",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "diskspace": "^2.0.0",
+    "ora": "^5.4.1",
+    "os-utils": "0.0.14"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/u4ik/resourcemonitor.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/u4ik/resourcemonitor/issues"
+  },
+  "homepage": "https://github.com/u4ik/resourcemonitor#readme"
+}
